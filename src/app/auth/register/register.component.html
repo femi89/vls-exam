@@ -1,0 +1,48 @@
+<main class="page registration-page">
+  <section class="clean-block clean-form dark">
+    <div class="container">
+      <div class="block-heading">
+        <h2 class="text-info">Registration</h2>
+        <p>Lorem ipsum dolor sit amet, itae leo.</p>
+      </div>
+      <form (ngSubmit)="completeRegistration()" [formGroup]="registrationForm">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="mb-3">
+              <label class="form-label" for="firstName">First Name</label>
+              <input class="form-control item" type="text" id="firstName" formControlName="firstName" placeholder="First Name">
+              <small class="form-text" *ngIf="registrationForm?.get('firstName')?.invalid"> First name must be equal or greater than 3 characters</small>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="mb-3">
+              <label class="form-label" for="name">Last Name</label>
+              <input class="form-control item" type="text" id="lastName" formControlName="lastName" placeholder="Last Name">
+
+              <small class="form-text" *ngIf="registrationForm?.get('lastName')?.invalid"> Last name must be equal or greater than 3 characters</small>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="name">Username</label>
+          <input class="form-control item" type="text" id="name" formControlName="userName">
+          <small class="form-text" *ngIf="registrationForm?.get('userName')?.invalid">Username is required</small>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-control item" type="email" id="email" formControlName="email" placeholder="Email address">
+          <small class="form-text"  *ngIf="registrationForm?.get('email')?.invalid">Valid Email should be provided</small>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="password">Password</label>
+          <div class="input-group">
+            <input pInputText [type]="isShowingPassword ? 'text' : 'password'" class="form-control item" id="password" formControlName="password"/>
+            <button class="btn btn-primary" type="button" (click)="toggleShowPassword()"><i class="fa fa-eye{{!isShowingPassword ? '' : '-slash'}}"></i></button>
+          </div>
+          <small class="form-text text-danger">Password must contain Alpha Numeric, Numbers and special characters, minimum 10 characters</small>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="registrationForm.invalid">Sign Up</button>
+      </form>
+    </div>
+  </section>
+</main>

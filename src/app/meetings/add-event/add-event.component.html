@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-12">
+    <form [formGroup]="meetingForm">
+      <div class="p-fluid grid formgrid row">
+        <div class="field col-12 md:col-4">
+          <label class="form-label">Title</label>
+          <input type="text" class="form-control" formControlName="title"/>
+        </div>
+      <div class="field col-12">
+        <label class="form-label">Start time</label>
+        <input pInputText [ngxTimepicker]="startTime" formControlName="startTime"/>
+        <ngx-material-timepicker #startTime [defaultTime]="defaultTime" [format]="12" [min]="this.minStartTime"></ngx-material-timepicker>
+      </div>
+      <div class="field col-12">
+        <div class="d-flex justify-content-between">
+          <label class="form-label">End time</label>
+          <div class="field-checkbox">
+            <p-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="isAllDayEvent" (ngModelChange)="toggleAllDay($event)" [binary]="true" inputId="binary"></p-checkbox>
+            <label for="binary">All Day Event?</label>
+          </div>
+        </div>
+        <input pInputText [ngxTimepicker]="endDate" [disableClick]="isAllDayEvent" [disabled]="isAllDayEvent" formControlName="endTime"/>
+        <ngx-material-timepicker #endDate [defaultTime]="defaultTime" [format]="12" [min]="this.minStartTime"></ngx-material-timepicker>
+      </div>
+        <div class="field col-12">
+          <label class="form-label">Participants</label>
+          <p-multiSelect [filter]="false" placeholder="Select participants" formControlName="participants" [options]="availableUsers" [optionLabel]="'fullName'" [optionValue]="'userId'"></p-multiSelect>
+        </div>
+        <div class="field col-12">
+          <label class="form-label">Meeting Link</label>
+          <input pInputText type="url" formControlName="description" />
+        </div>
+        <div class="field col-12">
+          <label class="form-label">Description</label>
+          <textarea pInputTextarea formControlName="description" ></textarea>
+        </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <button class="btn btn-danger" type="button" (click)="close()">Close</button>
+        <button class="btn btn-primary" type="button" (click)="saveEvent()">Create Meeting</button>
+      </div>
+      </div>
+    </form>
+  </div>
+</div>

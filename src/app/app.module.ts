@@ -3,6 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {ConfirmationService, MessageService} from "primeng/api";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {HttpClientModule} from "@angular/common/http";
+import {DialogService, DynamicDialogRef} from "primeng/dynamicdialog";
+import {ReactiveFormsModule} from "@angular/forms";
+import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
 
 @NgModule({
   declarations: [
@@ -10,9 +16,13 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    NgxMaterialTimepickerModule.setLocale('en-AE'),
   ],
-  providers: [],
+  providers: [ConfirmationService, DialogService, MessageService, DynamicDialogRef],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

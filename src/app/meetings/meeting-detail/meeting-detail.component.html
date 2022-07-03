@@ -1,0 +1,16 @@
+<div class="" *ngIf="meetingDetails">
+  <div class="text-end bg-light mb-3">
+    <button class="btn btn-danger btn-sm" type="button" (click)="confirmDelete()"><i class="fa fa-trash-o"></i>Delete</button>
+    <button class="btn btn-primary btn-sm ms-2" type="button"><i class="fa fa-pencil-square-o"></i>Edit</button>
+  </div>
+  <h5 class="text-primary">{{meetingDetails.title}}</h5>
+  <p class="fw-bold">Description:</p>
+  <p>{{meetingDetails.description}}</p>
+  <ul class="list-unstyled">
+    <li><strong>Meeting Start:</strong> {{startingDate | date: 'medium'}}</li>
+    <li><strong>Meeting End:</strong> {{endDate | date: 'medium'}}</li>
+  </ul>
+  <div>Attendance:
+    <span class="badge bg-secondary"><i class="fa fa-user-o"></i>  Adeola, james</span>
+  </div>
+</div>

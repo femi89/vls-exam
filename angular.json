@@ -31,9 +31,19 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets/css/styles.min.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/styles.scss",
+              "src/assets/css/vanilla-zoom.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/bootstrap4-light-purple/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/script.min.js",
+              "src/assets/js/vanilla-zoom.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -99,9 +109,19 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets/css/styles.min.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/styles.scss",
+              "src/assets/css/vanilla-zoom.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/bootstrap4-light-purple/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/script.min.js",
+              "src/assets/js/vanilla-zoom.js"
+            ]
           }
         }
       }

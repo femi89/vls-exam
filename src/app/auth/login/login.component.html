@@ -1,0 +1,30 @@
+<main class="page login-page">
+  <section class="clean-block clean-form dark">
+    <div class="container">
+      <div class="block-heading">
+        <h2 class="text-info">Log In</h2>
+        <p>Lorem ipsum dolor sit amet, mattis vitae leo.</p>
+      </div>
+      <form (ngSubmit)="completeLogin()" [formGroup]="loginFormGroup">
+        <div class="mb-3">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-control item" type="email" id="email" formControlName="userName">
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="password">Password</label>
+          <div class="input-group">
+            <input class="form-control" pInputText [type]="showPassword ? 'text' : 'password'" formControlName="password">
+            <button class="btn btn-primary" type="button" (click)="toggleMask()"><i class="fa fa-eye{{showPassword ? '-slash' : ''}}"></i></button>
+          </div>
+        </div>
+        <div class="mb-3">
+         <!-- <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="checkbox">
+            <label class="form-check-label" for="checkbox">Remember me</label>
+          </div>-->
+        </div>
+        <button class="btn btn-primary" type="submit">Log In</button>
+      </form>
+    </div>
+  </section>
+</main>

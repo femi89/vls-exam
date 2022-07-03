@@ -1,0 +1,16 @@
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
+<nav class="navbar navbar-light navbar-expand-lg bg-white clean-navbar py-2">
+  <div class="container"><a class="navbar-brand logo" href="#">Brand</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navcol-1">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <button class="btn btn-primary" type="button" routerLink="/auth/login" *ngIf="!isLoginPage">Login</button>
+          <button class="btn btn-primary" type="button" routerLink="/auth/register"  *ngIf="isLoginPage">Register</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+

@@ -1,0 +1,17 @@
+<p-confirmDialog [baseZIndex]="2" header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<p-toast></p-toast>
+<p-dialog [baseZIndex]="998"></p-dialog>
+<nav class="navbar navbar-light navbar-expand-lg bg-white clean-navbar py-2">
+  <div class="container"><a class="navbar-brand logo" href="#">Brand</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navcol-1">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><button class="btn btn-danger" type="button" (click)="confirmLogout()">Logout</button></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<main class="page landing-page">
+  <app-index></app-index>
+  <router-outlet></router-outlet>
+</main>
