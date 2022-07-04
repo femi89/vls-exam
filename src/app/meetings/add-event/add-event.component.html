@@ -26,17 +26,17 @@
           <label class="form-label">Participants</label>
           <p-multiSelect [filter]="false" placeholder="Select participants" formControlName="participants" [options]="availableUsers" [optionLabel]="'fullName'" [optionValue]="'userId'"></p-multiSelect>
         </div>
-        <div class="field col-12">
+        <!--<div class="field col-12">
           <label class="form-label">Meeting Link</label>
           <input pInputText type="url" formControlName="description" />
-        </div>
+        </div>-->
         <div class="field col-12">
           <label class="form-label">Description</label>
           <textarea pInputTextarea formControlName="description" ></textarea>
         </div>
       <div class="d-flex justify-content-between align-items-center">
         <button class="btn btn-danger" type="button" (click)="close()">Close</button>
-        <button class="btn btn-primary" type="button" (click)="saveEvent()">Create Meeting</button>
+        <button class="btn btn-primary" type="button" (click)="saveEvent()" [disabled]="meetingForm.invalid">Create Meeting</button>
       </div>
       </div>
     </form>

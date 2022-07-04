@@ -5,6 +5,7 @@ import {MessageService} from 'primeng/api';
 import {RegisterPayloadInterface} from "@vls/interfaces/auth-interface";
 import {Router} from "@angular/router";
 import * as bcrypt from 'bcryptjs';
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-register',
@@ -14,6 +15,8 @@ import * as bcrypt from 'bcryptjs';
 export class RegisterComponent implements OnInit {
   public registrationForm: FormGroup = new FormGroup({});
   public isShowingPassword = false;
+  captchaSiteKey = environment.captchaSiteKeyV2;
+  public recaptchaVerified = false;
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -73,5 +76,17 @@ export class RegisterComponent implements OnInit {
 
   public toggleShowPassword(): void {
     this.isShowingPassword = !this.isShowingPassword;
+  }
+
+  resolved(event: string) {
+    if(event) {
+      this.recaptchaVerified = true;
+    } else {
+      this.recaptchaVerified = false;
+    }
+  }
+
+  errored($event: []) {
+    this.recaptchaVerified = false;
   }
 }

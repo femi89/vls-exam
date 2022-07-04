@@ -28,6 +28,7 @@
     "@ngrx/store": "^14.0.1",
     "@types/bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
+    "ng-recaptcha": "^9.0.0",
     "ngx-captcha": "^11.0.0",
     "ngx-material-timepicker": "^5.5.3",
     "primeicons": "^5.0.0",

@@ -9,6 +9,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {DialogService, DynamicDialogRef} from "primeng/dynamicdialog";
 import {ReactiveFormsModule} from "@angular/forms";
 import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
+import {RECAPTCHA_SETTINGS, RecaptchaSettings} from "ng-recaptcha";
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,12 @@ import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
     ReactiveFormsModule,
     NgxMaterialTimepickerModule.setLocale('en-AE'),
   ],
-  providers: [ConfirmationService, DialogService, MessageService, DynamicDialogRef],
+  providers: [ConfirmationService, DialogService, MessageService, DynamicDialogRef,
+    {
+      provide: RECAPTCHA_SETTINGS,
+      useValue: { siteKey: environment.captchaSiteKeyV2 } as RecaptchaSettings,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

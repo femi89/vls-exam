@@ -10,6 +10,7 @@ import {PasswordModule} from "primeng/password";
 import {InputTextModule} from "primeng/inputtext";
 import {ToastModule} from "primeng/toast";
 import {ConfirmDialogModule} from "primeng/confirmdialog";
+import {RecaptchaModule} from "ng-recaptcha";
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {ConfirmDialogModule} from "primeng/confirmdialog";
     PasswordModule,
     InputTextModule,
     ToastModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    RecaptchaModule
   ]
 })
 export class AuthModule { }

@@ -39,10 +39,17 @@
             <input pInputText [type]="isShowingPassword ? 'text' : 'password'" class="form-control item" id="password" formControlName="password"/>
             <button class="btn btn-primary" type="button" (click)="toggleShowPassword()"><i class="fa fa-eye{{!isShowingPassword ? '' : '-slash'}}"></i></button>
           </div>
-          <small class="form-text text-danger">Password must contain Alpha Numeric, Numbers and special characters, minimum 10 characters</small>
+          <small class="form-text text-danger" *ngIf="registrationForm?.get('password')?.invalid">Password must contain Alpha Numeric, Numbers and special characters, minimum 10 characters</small>
         </div>
-        <button class="btn btn-primary" type="submit" [disabled]="registrationForm.invalid">Sign Up</button>
-      </form>
+        <re-captcha
+          (resolved)="resolved($event)"
+          (error)="errored($event)"
+          errorMode="handled" [siteKey]="captchaSiteKey"
+        ></re-captcha>
+        <div class="text-center py-3">
+          <button class="btn btn-primary" type="submit" [disabled]="registrationForm.invalid || !this.recaptchaVerified">Sign Up</button>
+        </div>
+       </form>
     </div>
   </section>
 </main>

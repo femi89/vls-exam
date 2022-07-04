@@ -35,12 +35,12 @@ export class AddEventComponent implements OnInit {
     const now = new Date();
     this.setDate = this.dialogData?.start ?? new Date();
     this.minStartTime = formatDate(now, 'hh:mm a', 'en-NG', 'GMT+1');
-    this.defaultTime = formatDate(this.setDate.setMinutes(+30), 'hh:mm a', 'en-AE', 'GMT+1');
+    this.defaultTime = formatDate(now.setMinutes(+30), 'hh:mm a', 'en-NG', 'GMT+1');
     this.meetingForm = this.formBuilder.group({
-      startTime: [this.defaultTime],
+      startTime: [this.defaultTime, [Validators.required]],
       endTime: [this.defaultTime],
       title: [null, [Validators.required]],
-      meetingLink: [null, [Validators.required]],
+      // meetingLink: [null, [Validators.required]],
       description: [null, Validators.required],
       participants: [null, Validators.required],
     });
@@ -50,6 +50,12 @@ export class AddEventComponent implements OnInit {
     this.authService.allUsers$.subscribe(res => {
       this.allUsers = res ?? [];
       this.availableUsers = this.allUsers.filter(xd => xd.userId !== this.userDetail?.userId) ?? [];
+    });
+    this.meetingForm.get('startTime')?.valueChanges.subscribe(res => {
+      if(res) {
+        const endTime = new Date(this.convertToDate(res)).setMinutes(+30);
+        this.meetingForm.get('endTime')?.patchValue(formatDate(endTime, 'hh:mm a', 'en-NG', 'GMT+1'));
+      }
     });
   }
 
